@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_beta/core/constants/app_theme.dart';
 import 'package:weather_beta/core/router/app_router.dart';
 
 class App extends StatelessWidget {
@@ -9,6 +10,8 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
+      themeMode: ThemeMode.light,
+      theme: ThemeData(colorSchemeSeed: AppTheme.colorSchemeSeed),
     );
   }
 }
