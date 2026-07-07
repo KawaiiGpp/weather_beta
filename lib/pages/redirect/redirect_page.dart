@@ -16,20 +16,43 @@ class RedirectPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            Message.info(
-              title: "页面已过期",
-              detail: ["你可以返回前一个页面重试", "也可以点击下方按钮，一键回到主页"],
-            ),
-
-            const SizedBox(height: 12),
-
-            FilledButton(
-              onPressed: () => context.go(AppRoutes.home),
-              child: const Text("返回主页"),
-            ),
+            _messageScreen(),
+            const SizedBox(height: 36),
+            _buttonGroup(context),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _messageScreen() {
+    return Message.info(
+      title: "页面已过期",
+      detail: ["你可以返回前一个页面重试", "也可以点击下方按钮，一键回到主页"],
+    );
+  }
+
+  Widget _buttonGroup(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+
+      children: [
+        SizedBox(
+          width: 120,
+          child: FilledButton(
+            onPressed: () => context.go(AppRoutes.home),
+            child: const Text("返回主页"),
+          ),
+        ),
+
+        SizedBox(
+          width: 120,
+          child: TextButton(
+            onPressed: () => context.pop(),
+            child: const Text("返回上一页"),
+          ),
+        ),
+      ],
     );
   }
 }
