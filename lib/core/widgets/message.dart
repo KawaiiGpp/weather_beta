@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
-import 'package:weather_beta/core/widgets/widgets.dart';
+import 'package:weather_beta/core/widgets/themed_icon.dart';
 
 class Message extends StatelessWidget {
   final Widget leading;
