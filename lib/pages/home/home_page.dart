@@ -79,11 +79,11 @@ class _State extends State<HomePage> {
   Widget _button() {
     return SizedBox(
       width: double.infinity,
-
-      child: FilledButton(
-        onPressed: () => context.push(AppRoutes.redirect),
-        child: const Text("查询城市"),
-      ),
+      child: FilledButton(onPressed: _push, child: const Text("查询城市")),
     );
+  }
+
+  void _push() {
+    context.push(AppRoutes.locationSearch, extra: controller.text);
   }
 }
