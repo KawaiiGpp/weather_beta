@@ -1,7 +1,7 @@
 import 'package:weather_beta/core/constants/weather_api.dart';
-import 'package:weather_beta/core/web/model/location.dart';
+import 'package:weather_beta/core/web/models/location.dart';
 import 'package:weather_beta/core/web/web_client.dart';
-import 'package:weather_beta/core/web/web_service.dart';
+import 'package:weather_beta/core/web/web_services.dart';
 
 class LocationSearchService implements WebService<LocationList> {
   const LocationSearchService();

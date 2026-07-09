@@ -9,5 +9,5 @@ abstract interface class WebService<T> {
 class WebServices {
   WebServices._();
 
-  static const locationSearch = LocationSearchService();
+  static const WebService locationSearch = LocationSearchService();
 }
