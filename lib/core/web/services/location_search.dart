@@ -1,10 +1,10 @@
 import 'package:weather_beta/core/constants/weather_api.dart';
-import 'package:weather_beta/core/web/models/location.dart';
+import 'package:weather_beta/core/web/models/models.dart';
 import 'package:weather_beta/core/web/web_client.dart';
 import 'package:weather_beta/core/web/web_services.dart';
 
-class LocationSearchService implements WebService<LocationList> {
-  const LocationSearchService();
+class LocationSearch implements WebService<LocationList> {
+  const LocationSearch();
 
   @override
   final path = WeatherApiPaths.locationSearch;

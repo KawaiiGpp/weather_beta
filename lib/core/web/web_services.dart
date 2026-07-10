@@ -1,4 +1,5 @@
-import 'package:weather_beta/core/web/services/location_search_service.dart';
+import 'package:weather_beta/core/web/models/models.dart';
+import 'package:weather_beta/core/web/services/location_search.dart';
 
 abstract interface class WebService<T> {
   String get path;
@@ -9,5 +10,5 @@ abstract interface class WebService<T> {
 class WebServices {
   WebServices._();
 
-  static const WebService locationSearch = LocationSearchService();
+  static const WebService<LocationList> locationSearch = LocationSearch();
 }
