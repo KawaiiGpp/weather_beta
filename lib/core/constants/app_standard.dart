@@ -16,6 +16,7 @@ class AppStandard {
   static const pagePaddingAll = EdgeInsets.all(16);
 
   static final borderRadius = BorderRadius.circular(16);
+  static final borderShape = RoundedRectangleBorder(borderRadius: borderRadius);
 }
 
 class _AppThemes {
@@ -24,14 +25,14 @@ class _AppThemes {
   static final filledButton = FilledButtonThemeData(
     style: FilledButton.styleFrom(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: AppStandard.borderRadius),
+      shape: AppStandard.borderShape,
     ),
   );
 
   static final textButton = TextButtonThemeData(
     style: TextButton.styleFrom(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: AppStandard.borderRadius),
+      shape: AppStandard.borderShape,
     ),
   );
 
