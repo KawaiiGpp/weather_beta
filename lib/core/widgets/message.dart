@@ -19,7 +19,7 @@ class Message extends StatelessWidget {
 
   Message.exception(Object exception, {super.key, this.title = "发生异常"})
     : leading = ThemedIcon.error(size: _leadingIconSize),
-      detail = ["$exception", "请联系开发者"];
+      detail = ["请联系开发者反馈该问题，以改进应用", "以下是异常详情", "$exception"];
 
   Message.info({super.key, required this.title, this.detail})
     : leading = ThemedIcon.info(size: _leadingIconSize);
