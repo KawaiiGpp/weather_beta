@@ -13,7 +13,7 @@ class LocationSearch implements WebService<LocationList> {
   Future<LocationList> fetch(String input) async {
     final raw = await WebClient.get(
       path,
-      parameters: {"location": input, "number": "20"},
+      parameters: {"location": input, "number": "20", "lang": "zh-hans"},
     );
 
     return LocationList.create(raw["location"]);
