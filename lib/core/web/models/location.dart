@@ -16,8 +16,8 @@ class Location {
 }
 
 class LocationList {
-  final List<Location> locations;
+  final List<Location> entries;
 
   LocationList.create(List raw)
-    : locations = raw.mapToList((it) => Location.fromMap(it));
+    : entries = raw.mapToList((it) => Location.fromMap(it));
 }
