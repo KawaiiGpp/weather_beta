@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:weather_beta/core/router/app_routes.dart';
 import 'package:weather_beta/core/web/web.dart';
 import 'package:weather_beta/core/widgets/widgets.dart';
 import 'package:weather_beta/pages/location_search/widgets/location_list_view.dart';
@@ -34,5 +36,7 @@ class _State extends State<LocationSearchPage> {
     );
   }
 
-  void _onTap(Location location) {}
+  void _onTap(Location location) {
+    context.push(AppRoutes.weather, extra: location);
+  }
 }

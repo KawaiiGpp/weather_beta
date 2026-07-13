@@ -31,4 +31,5 @@ class AppRoutes {
   static const home = "/";
   static const redirect = "/redirect";
   static const locationSearch = "/location_search";
+  static const weather = "/weather";
 }
