@@ -32,7 +32,17 @@ class _State extends State<LocationSearchPage> {
       body: FutureView(
         future: future,
         view: (_, locations) => LocationListView(locations, onTap: _onTap),
+        error: (_, exception) => Center(child: _exceptionView(exception)),
       ),
+    );
+  }
+
+  Widget _exceptionView(Object exception) {
+    return WebExceptionMessage(
+      exception,
+      statusMap: {
+        400: const ["没有查询到有效结果", "可能因为搜索词输入有误，或长度过短"],
+      },
     );
   }
 
