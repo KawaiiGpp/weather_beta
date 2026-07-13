@@ -16,7 +16,7 @@ class RedirectPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            _messageScreen(),
+            _messageView(),
             const SizedBox(height: 36),
             _buttonGroup(context),
           ],
@@ -25,10 +25,10 @@ class RedirectPage extends StatelessWidget {
     );
   }
 
-  Widget _messageScreen() {
+  Widget _messageView() {
     return Message.info(
       title: "页面已过期",
-      detail: ["你可以返回前一个页面重试", "也可以点击下方按钮，一键回到主页"],
+      detail: const ["你可以返回前一个页面重试", "也可以点击下方按钮，一键回到主页"],
     );
   }
 
