@@ -16,5 +16,6 @@ class WeatherApiPaths {
   WeatherApiPaths._();
 
   static const locationSearch = "/geo/v2/city/lookup";
+  static const realtime = "/v7/weather/now";
   static const hourForecast = "/v7/weather/168h";
 }
