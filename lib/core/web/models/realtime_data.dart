@@ -13,7 +13,7 @@ class RealtimeData {
   final int cloud;
   final int dew;
 
-  RealtimeData.fromJson(Map<String, dynamic> map)
+  RealtimeData.fromMap(Map<String, dynamic> map)
     : time = DateTime.parse(map["obsTime"]),
       temperature = int.parse(map["temp"]),
       icon = map["icon"],

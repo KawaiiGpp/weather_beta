@@ -1,5 +1,5 @@
 import 'package:weather_beta/core/constants/weather_api.dart';
-import 'package:weather_beta/core/web/models/realtime_data.dart';
+import 'package:weather_beta/core/web/models/models.dart';
 import 'package:weather_beta/core/web/web_client.dart';
 import 'package:weather_beta/core/web/web_services.dart';
 
@@ -16,6 +16,6 @@ class RealtimeWeather implements WebService<RealtimeData> {
       parameters: {"location": input, "lang": "zh-hans"},
     );
 
-    return RealtimeData.fromJson(raw["now"]);
+    return RealtimeData.fromMap(raw["now"]);
   }
 }
