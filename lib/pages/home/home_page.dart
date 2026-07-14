@@ -19,27 +19,25 @@ class _State extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
 
-      body: SafeArea(
-        child: Padding(
-          padding: AppStandard.pagePaddingAll,
+      body: Padding(
+        padding: AppStandard.pagePaddingAll,
 
-          child: Column(
-            children: [
-              const Spacer(flex: 1),
+        child: Column(
+          children: [
+            const Spacer(flex: 1),
 
-              _title(),
-              const SizedBox(height: 12),
+            _title(),
+            const SizedBox(height: 12),
 
-              _subtitle(),
-              const SizedBox(height: 36),
+            _subtitle(),
+            const SizedBox(height: 36),
 
-              _textField(),
-              const SizedBox(height: 20),
+            _textField(),
+            const SizedBox(height: 20),
 
-              _button(),
-              const Spacer(flex: 2),
-            ],
-          ),
+            _button(),
+            Spacer(flex: 2),
+          ],
         ),
       ),
     );
