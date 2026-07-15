@@ -41,7 +41,11 @@ class ForecastList {
 }
 
 extension ForecastIterableExtension on Iterable<ForecastData> {
-  List<R> takeMapped<R>(int amount, R Function(ForecastData) transform) {
+  List<ForecastData> takeHours(int amount) {
+    return take(amount).toList();
+  }
+
+  List<R> mapHours<R>(int amount, R Function(ForecastData) transform) {
     return take(amount).mapToList(transform);
   }
 }
