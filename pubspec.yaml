@@ -39,6 +39,8 @@ dependencies:
   dio: ^5.10.0
   auto_size_text: ^3.0.0
   provider: ^6.1.5+1
+  collection: ^1.19.1
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +71,7 @@ flutter:
 
   assets:
     - .env
+    - assets/weather_icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
