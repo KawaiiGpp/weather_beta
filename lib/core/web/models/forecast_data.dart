@@ -39,3 +39,9 @@ class ForecastList {
   ForecastList.create(List raw)
     : entries = raw.mapToList((it) => ForecastData.fromMap(it));
 }
+
+extension ForecastIterableExtension on Iterable<ForecastData> {
+  List<R> takeMapped<R>(int amount, R Function(ForecastData) transform) {
+    return take(amount).mapToList(transform);
+  }
+}
