@@ -15,7 +15,7 @@ class ForecastData {
   final int dew;
 
   ForecastData.fromMap(Map<String, dynamic> map)
-    : time = DateTime.parse(map["fxTime"]),
+    : time = DateTime.parse(map["fxTime"]).toLocal(),
       temperature = int.parse(map["temp"]),
       icon = map["icon"],
       text = map["text"],

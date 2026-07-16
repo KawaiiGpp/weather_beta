@@ -14,7 +14,7 @@ class RealtimeData {
   final int dew;
 
   RealtimeData.fromMap(Map<String, dynamic> map)
-    : time = DateTime.parse(map["obsTime"]),
+    : time = DateTime.parse(map["obsTime"]).toLocal(),
       temperature = int.parse(map["temp"]),
       icon = map["icon"],
       text = map["text"],
