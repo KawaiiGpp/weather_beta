@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
 import 'package:weather_beta/core/web/models/wind_data.dart';
 
@@ -39,6 +40,22 @@ class ForecastList {
   ForecastList.create(List raw)
     : entries = raw.mapToList((it) => ForecastData.fromMap(it));
 
+  List<DailyForecastList> asDaily() {
+    final grouped = entries.groupListsBy(
+      (it) => DateTime(it.time.year, it.time.month, it.time.day),
+    );
+
+    return grouped.values
+        .where(
+          (it) =>
+              it.isNotEmpty &&
+              it.first.time.hour == 0 &&
+              it.last.time.hour == 23,
+        )
+        .map(DailyForecastList.new)
+        .toList();
+  }
+
   List<ForecastData> takeHours(int amount) {
     return entries.take(amount).toList();
   }
@@ -46,4 +63,10 @@ class ForecastList {
   List<R> mapHours<R>(int amount, R Function(ForecastData) transform) {
     return entries.take(amount).mapToList(transform);
   }
+}
+
+class DailyForecastList {
+  final List<ForecastData> entries;
+
+  DailyForecastList(this.entries);
 }
