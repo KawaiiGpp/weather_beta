@@ -6,12 +6,11 @@ class GradientMap {
   final List<double> stops;
   final List<Color> colors;
 
-  GradientMap(Map<double, Color> input)
-    : assert(input.isNotEmpty),
-      stops = input.keys.toList()..sort(),
-      colors = input.values.toList();
+  const GradientMap({required this.stops, required this.colors});
 
   Color colorAt(double input) {
+    _assert();
+
     if (input <= stops.first) return colors.first;
     if (input >= stops.last) return colors.last;
 
@@ -31,6 +30,8 @@ class GradientMap {
     Alignment begin = Alignment.bottomCenter,
     Alignment end = Alignment.topCenter,
   }) {
+    _assert();
+
     final Map<double, Color> map = range.min == range.max
         ? colorAt(range.min).let((it) => {0.0: it, 1.0: it})
         : _subMap(range);
@@ -73,5 +74,10 @@ class GradientMap {
 
     result[1] = colorAt(max);
     return result;
+  }
+
+  void _assert() {
+    assert(stops.isNotEmpty);
+    assert(stops.length == colors.length);
   }
 }
