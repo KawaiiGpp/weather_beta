@@ -27,8 +27,8 @@ class GradientMap {
   LinearGradient slice(
     Range range, {
     Color Function(Color)? transform,
-    Alignment begin = Alignment.bottomCenter,
-    Alignment end = Alignment.topCenter,
+    AlignmentGeometry begin = Alignment.bottomCenter,
+    AlignmentGeometry end = Alignment.topCenter,
   }) {
     _assert();
 
@@ -44,8 +44,8 @@ class GradientMap {
 
   LinearGradient _gradient(
     Map<double, Color> map, {
-    required Alignment begin,
-    required Alignment end,
+    required AlignmentGeometry begin,
+    required AlignmentGeometry end,
   }) {
     return LinearGradient(
       stops: map.keys.toList(),
