@@ -14,7 +14,7 @@ class GradientMap {
     if (input <= stops.first) return colors.first;
     if (input >= stops.last) return colors.last;
 
-    final to = stops.indexWhere((each) => input < each);
+    final to = stops.indexWhere((it) => input < it);
     final from = to - 1;
 
     final total = stops[to] - stops[from];
