@@ -2,7 +2,11 @@ class Range {
   final double min;
   final double max;
 
+  const Range(this.min, this.max);
+
+  Range.fromInt(int min, int max) : min = min.toDouble(), max = max.toDouble();
+
   double get size => max - min;
 
-  const Range(this.min, this.max);
+  bool contains(double value) => value >= min && value <= max;
 }
