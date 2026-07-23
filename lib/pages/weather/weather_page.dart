@@ -26,6 +26,9 @@ class _State extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(title: const Text("天气详情")),
+
       body: FutureView(
         future: future,
         view: (_, data) => Provider(create: (_) => data, child: const Root()),
