@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/common/common.dart';
-import 'package:weather_beta/core/weather_type/config/weather_type_config.dart';
+import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/core/weather_metric/config/weather_metric_config.dart';
 
-class WindSpeedConfig implements WeatherTypeConfig {
+class WindSpeedConfig implements WeatherMetricConfig {
   const WindSpeedConfig();
 
   @override
@@ -37,4 +38,15 @@ class WindSpeedConfig implements WeatherTypeConfig {
       "飓风过境，极度危险",
     ],
   );
+
+  @override
+  String get unit => "km/h";
+
+  @override
+  String get shortUnit => "";
+
+  @override
+  String format(double value, bool short) {
+    return value.round().let((it) => short ? "$it" : "$it $unit");
+  }
 }

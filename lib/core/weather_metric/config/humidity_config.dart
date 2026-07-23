@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/common/common.dart';
-import 'package:weather_beta/core/weather_type/config/weather_type_config.dart';
+import 'package:weather_beta/core/weather_metric/config/weather_metric_config.dart';
 
-class HumidityConfig implements WeatherTypeConfig {
+class HumidityConfig implements WeatherMetricConfig {
   const HumidityConfig();
 
   @override
@@ -36,4 +36,15 @@ class HumidityConfig implements WeatherTypeConfig {
       "极度潮湿，防潮防霉",
     ],
   );
+
+  @override
+  String get unit => "%";
+
+  @override
+  String get shortUnit => "";
+
+  @override
+  String format(double value, bool short) {
+    return "${value.round()}$unit";
+  }
 }

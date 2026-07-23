@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/common/common.dart';
-import 'package:weather_beta/core/weather_type/config/weather_type_config.dart';
+import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/core/weather_metric/config/weather_metric_config.dart';
 
-class TemperatureConfig implements WeatherTypeConfig {
+class TemperatureConfig implements WeatherMetricConfig {
   const TemperatureConfig();
 
   @override
@@ -42,4 +43,15 @@ class TemperatureConfig implements WeatherTypeConfig {
       "酷暑天气，避免外出",
     ],
   );
+
+  @override
+  String get unit => "°C";
+
+  @override
+  String get shortUnit => "°";
+
+  @override
+  String format(double value, bool short) {
+    return value.round().let((it) => short ? "$it$shortUnit" : "$it$unit");
+  }
 }

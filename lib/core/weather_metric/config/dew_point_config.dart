@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/common/common.dart';
-import 'package:weather_beta/core/weather_type/config/weather_type_config.dart';
+import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/core/weather_metric/config/weather_metric_config.dart';
 
-class DewPointConfig implements WeatherTypeConfig {
+class DewPointConfig implements WeatherMetricConfig {
   const DewPointConfig();
 
   @override
@@ -30,4 +31,15 @@ class DewPointConfig implements WeatherTypeConfig {
     thresholds: [18, 20, 22, 24, 27],
     outputs: ["略有潮意，皮肤粘腻", "闷热渐显，出汗难干", "闷热明显，湿热难耐", "非常闷热，桑拿体感", "极度闷热，小心中暑"],
   );
+
+  @override
+  String get unit => "°C";
+
+  @override
+  String get shortUnit => "°";
+
+  @override
+  String format(double value, bool short) {
+    return value.round().let((it) => short ? "$it$shortUnit" : "$it$unit");
+  }
 }

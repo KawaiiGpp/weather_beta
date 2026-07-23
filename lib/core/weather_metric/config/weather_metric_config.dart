@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/common/common.dart';
 
-abstract interface class WeatherTypeConfig {
+abstract interface class WeatherMetricConfig {
   String get name;
 
   IconData get icon;
@@ -9,4 +9,10 @@ abstract interface class WeatherTypeConfig {
   GradientMap get gradientMap;
 
   TierMap<String> get labelMap;
+
+  String get unit;
+
+  String get shortUnit;
+
+  String format(double value, bool short);
 }
