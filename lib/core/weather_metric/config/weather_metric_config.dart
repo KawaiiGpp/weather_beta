@@ -14,5 +14,5 @@ abstract interface class WeatherMetricConfig {
 
   String get shortUnit;
 
-  String format(double value, bool short);
+  String format(num value, bool short);
 }

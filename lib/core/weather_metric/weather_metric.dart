@@ -25,7 +25,7 @@ enum WeatherMetric {
 
   const WeatherMetric(this._config);
 
-  String format(double value, {bool short = false}) {
+  String format(num value, {bool short = false}) {
     return _config.format(value, short);
   }
 }

@@ -44,7 +44,7 @@ class HumidityConfig implements WeatherMetricConfig {
   String get shortUnit => "";
 
   @override
-  String format(double value, bool short) {
+  String format(num value, bool short) {
     return "${value.round()}$unit";
   }
 }
