@@ -13,7 +13,7 @@ class HourlyForecast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160,
+      height: 155,
 
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainer,
