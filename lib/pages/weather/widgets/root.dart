@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_beta/pages/weather/widgets/src/daily_forecast/daily_forecast.dart';
 import 'package:weather_beta/pages/weather/widgets/src/headline.dart';
 import 'package:weather_beta/pages/weather/widgets/src/hourly_forecast.dart';
+import 'package:weather_beta/pages/weather/widgets/src/metric_group/metric_group.dart';
 
 class Root extends StatelessWidget {
   const Root({super.key});
@@ -26,8 +27,10 @@ class Root extends StatelessWidget {
                 const Headline(),
                 const SizedBox(height: 64),
                 const HourlyForecast(),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 const DailyForecast(),
+                const SizedBox(height: 12),
+                const MetricGroup(),
               ],
             ),
           ),
