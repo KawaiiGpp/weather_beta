@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_beta/core/constants/app_standard.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/core/weather_metric/weather_metric.dart';
 import 'package:weather_beta/core/web/web.dart';
 import 'package:weather_beta/core/widgets/widgets.dart';
 import 'package:weather_beta/pages/weather/data/weather_data.dart';
@@ -55,7 +56,7 @@ class _Tile extends StatelessWidget {
       width: 80,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        
+
         children: [
           Text(_format.format(data.time)),
           const SizedBox(height: 12),
@@ -68,7 +69,7 @@ class _Tile extends StatelessWidget {
           ),
 
           const SizedBox(height: 12),
-          Text("${data.temperature}°C"),
+          Text(WeatherMetric.temperature(data.temperature)),
 
           const SizedBox(height: 2),
           FittedText(data.text),
