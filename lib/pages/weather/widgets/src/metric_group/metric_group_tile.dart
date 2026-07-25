@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_beta/core/constants/app_standard.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/core/widgets/fitted_text.dart';
 
 class MetricGroupTile extends StatelessWidget {
   final IconData icon;
@@ -29,7 +30,7 @@ class MetricGroupTile extends StatelessWidget {
       child: ListTile(
         leading: Icon(icon, color: scheme.primary),
         subtitle: Text(name),
-        title: Text(value),
+        title: FittedText(value),
       ),
     );
   }
