@@ -4,7 +4,7 @@ class WindData {
   final String scale;
   final int speed;
 
-  WindData({
+  const WindData({
     required this.angle,
     required this.direction,
     required this.scale,
