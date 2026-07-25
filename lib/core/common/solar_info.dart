@@ -15,7 +15,11 @@ class SolarInfo {
     required this.elevation,
   });
 
-  factory SolarInfo.calculate(double lon, double lat, DateTime time) {
+  factory SolarInfo.calculate({
+    required DateTime time,
+    required double lon,
+    required double lat,
+  }) {
     final instant = Instant.fromDateTime(time);
     final current = SolarCalculator(instant, lat, lon);
 
