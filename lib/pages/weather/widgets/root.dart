@@ -9,28 +9,23 @@ class Root extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: SizedBox(
         width: double.infinity,
 
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 48,
-              bottom: 16,
-            ),
+            padding: EdgeInsets.only(left: 16, right: 16, top: 48, bottom: 16),
 
             child: Column(
               children: [
-                const Headline(),
-                const SizedBox(height: 64),
-                const HourlyForecast(),
-                const SizedBox(height: 12),
-                const DailyForecast(),
-                const SizedBox(height: 12),
-                const MetricGroup(),
+                Headline(),
+                SizedBox(height: 64),
+                HourlyForecast(),
+                SizedBox(height: 12),
+                DailyForecast(),
+                SizedBox(height: 12),
+                MetricGroup(),
               ],
             ),
           ),
