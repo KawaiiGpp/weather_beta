@@ -15,21 +15,21 @@ class SolarInfo {
     required this.elevation,
   });
 
-  factory SolarInfo.calculate({
-    required DateTime time,
+  factory SolarInfo.calculate(
+    DateTime utcTime, {
     required double lon,
     required double lat,
   }) {
-    final instant = Instant.fromDateTime(time);
+    final instant = Instant.fromDateTime(utcTime);
     final current = SolarCalculator(instant, lat, lon);
 
     final transit = current.sunTransitTime;
     final noon = SolarCalculator(transit, lat, lon);
 
     return SolarInfo(
-      sunrise: current.sunriseTime.toUtcDateTime().toLocal(),
-      sunset: current.sunsetTime.toUtcDateTime().toLocal(),
-      transit: transit.toUtcDateTime().toLocal(),
+      sunrise: current.sunriseTime.toUtcDateTime(),
+      sunset: current.sunsetTime.toUtcDateTime(),
+      transit: transit.toUtcDateTime(),
       elevationNoon: noon.sunHorizontalPosition.elevation,
       elevation: current.sunHorizontalPosition.elevation,
     );
