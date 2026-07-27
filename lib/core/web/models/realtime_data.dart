@@ -1,3 +1,4 @@
+import 'package:weather_beta/core/constants/weather_api.dart';
 import 'package:weather_beta/core/web/models/wind_data.dart';
 
 class RealtimeData {
@@ -14,7 +15,7 @@ class RealtimeData {
   final int dew;
 
   RealtimeData.fromMap(Map<String, dynamic> map)
-    : time = DateTime.parse(map["obsTime"]).toLocal(),
+    : time = WeatherApi.dateFormat.parse(map["obsTime"]),
       temperature = int.parse(map["temp"]),
       icon = map["icon"],
       text = map["text"],

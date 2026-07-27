@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:weather_beta/core/constants/weather_api.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
 import 'package:weather_beta/core/web/models/wind_data.dart';
 
@@ -16,7 +17,7 @@ class ForecastData {
   final int dew;
 
   ForecastData.fromMap(Map<String, dynamic> map)
-    : time = DateTime.parse(map["fxTime"]).toLocal(),
+    : time = WeatherApi.dateFormat.parse(map["fxTime"]),
       temperature = int.parse(map["temp"]),
       icon = map["icon"],
       text = map["text"],
