@@ -6,6 +6,7 @@ class Location {
   final String adm2;
   final String adm1;
   final String country;
+  final String tz;
   final double lon;
   final double lat;
 
@@ -15,6 +16,7 @@ class Location {
       adm2 = map["adm2"],
       adm1 = map["adm1"],
       country = map["country"],
+      tz = map["tz"],
       lon = double.parse(map["lon"]),
       lat = double.parse(map["lat"]);
 }
