@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_beta/pages/weather/widgets/src/astronomy_info/astronomy_info.dart';
 import 'package:weather_beta/pages/weather/widgets/src/daily_forecast/daily_forecast.dart';
 import 'package:weather_beta/pages/weather/widgets/src/headline.dart';
 import 'package:weather_beta/pages/weather/widgets/src/hourly_forecast.dart';
@@ -26,6 +27,8 @@ class Root extends StatelessWidget {
                 DailyForecast(),
                 SizedBox(height: 12),
                 MetricGroup(),
+                SizedBox(height: 12),
+                AstronomyInfo(),
               ],
             ),
           ),
