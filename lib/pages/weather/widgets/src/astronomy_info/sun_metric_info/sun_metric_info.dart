@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_beta/core/constants/app_standard.dart';
-import 'package:weather_beta/core/extensions/extensions.dart';
+import 'package:weather_beta/pages/weather/widgets/common/weather_card.dart';
 import 'package:weather_beta/pages/weather/widgets/src/astronomy_info/sun_metric_info/sun_metric_tile.dart';
 
 class SunMetricInfo extends StatelessWidget {
@@ -8,15 +7,8 @@ class SunMetricInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = context.colorScheme;
-
-    return Container(
+    return WeatherCard(
       padding: const EdgeInsets.all(4),
-
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainer,
-        borderRadius: AppStandard.borderRadius,
-      ),
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_beta/core/constants/app_standard.dart';
 import 'package:weather_beta/core/extensions/extensions.dart';
 import 'package:weather_beta/core/widgets/fitted_text.dart';
+import 'package:weather_beta/pages/weather/widgets/common/weather_card.dart';
 
 class MetricGroupTile extends StatelessWidget {
   final IconData icon;
@@ -19,13 +19,8 @@ class MetricGroupTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = context.colorScheme;
 
-    return Container(
+    return WeatherCard(
       alignment: Alignment.center,
-
-      decoration: BoxDecoration(
-        borderRadius: AppStandard.borderRadius,
-        color: scheme.surfaceContainer,
-      ),
 
       child: ListTile(
         leading: Icon(icon, color: scheme.primary),
