@@ -20,18 +20,26 @@ class SolarInfo {
     required double lon,
     required double lat,
   }) {
-    final instant = Instant.fromDateTime(utcTime);
-    final current = SolarCalculator(instant, lat, lon);
-
-    final transit = current.sunTransitTime;
-    final noon = SolarCalculator(transit, lat, lon);
+    final current = utcTime.createCalculator(lon, lat);
+    final noon = SolarCalculator(current.sunTransitTime, lat, lon);
 
     return SolarInfo(
       sunrise: current.sunriseTime.toUtcDateTime(),
       sunset: current.sunsetTime.toUtcDateTime(),
-      transit: transit.toUtcDateTime(),
+      transit: noon.sunTransitTime.toUtcDateTime(),
       elevationNoon: noon.sunHorizontalPosition.elevation,
       elevation: current.sunHorizontalPosition.elevation,
     );
+  }
+}
+
+extension _DateTimeExtension on DateTime {
+  SolarCalculator createCalculator(double lon, double lat) {
+    assert(isUtc);
+
+    final base = DateTime.utc(year, month, day, 12);
+    final utc = base.subtract(Duration(seconds: (lon * 240).round()));
+
+    return SolarCalculator(Instant.fromDateTime(utc), lat, lon);
   }
 }
