@@ -20,26 +20,38 @@ class SolarInfo {
     required double lon,
     required double lat,
   }) {
-    final current = utcTime.createCalculator(lon, lat);
-    final noon = SolarCalculator(current.sunTransitTime, lat, lon);
+    final current = utcTime.currentCalculator(lon, lat);
+    final daily = utcTime.dailyCalculator(lon, lat);
+    final noon = SolarCalculator(daily.sunTransitTime, lat, lon);
 
     return SolarInfo(
-      sunrise: current.sunriseTime.toUtcDateTime(),
-      sunset: current.sunsetTime.toUtcDateTime(),
-      transit: noon.sunTransitTime.toUtcDateTime(),
+      sunrise: daily.sunriseTime.toUtcDateTime(),
+      sunset: daily.sunsetTime.toUtcDateTime(),
+      transit: daily.sunTransitTime.toUtcDateTime(),
       elevationNoon: noon.sunHorizontalPosition.elevation,
       elevation: current.sunHorizontalPosition.elevation,
     );
   }
+
+  factory SolarInfo.now({required double lon, required double lat}) {
+    return SolarInfo.calculate(DateTime.now().toUtc(), lon: lon, lat: lat);
+  }
 }
 
 extension _DateTimeExtension on DateTime {
-  SolarCalculator createCalculator(double lon, double lat) {
+  SolarCalculator dailyCalculator(double lon, double lat) {
     assert(isUtc);
 
-    final base = DateTime.utc(year, month, day, 12);
-    final utc = base.subtract(Duration(seconds: (lon * 240).round()));
+    final offset = Duration(seconds: (lon * 240).round());
+    final local = add(offset);
+    final midday = DateTime.utc(local.year, local.month, local.day, 12);
+    final utc = midday.subtract(offset);
 
     return SolarCalculator(Instant.fromDateTime(utc), lat, lon);
+  }
+
+  SolarCalculator currentCalculator(double lon, double lat) {
+    assert(isUtc);
+    return SolarCalculator(Instant.fromDateTime(this), lat, lon);
   }
 }
