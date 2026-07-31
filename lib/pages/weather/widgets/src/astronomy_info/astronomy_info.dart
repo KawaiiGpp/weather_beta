@@ -9,18 +9,11 @@ class AstronomyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: _createSolarInfo,
-      child: const SunMetricInfo(),
-    );
+    return Provider(create: _createSolarInfo, child: const SunMetricInfo());
   }
 
   SolarInfo _createSolarInfo(BuildContext context) {
     final data = context.read<WeatherData>();
-    final lon = data.location.lon;
-    final lat = data.location.lat;
-    final utc = data.realtime.timeUtc;
-
-    return SolarInfo.calculate(utc, lon: lon, lat: lat);
+    return SolarInfo.now(lon: data.location.lon, lat: data.location.lat);
   }
 }
