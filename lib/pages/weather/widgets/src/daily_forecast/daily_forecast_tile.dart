@@ -8,7 +8,7 @@ import 'package:weather_beta/core/web/web.dart';
 import 'package:weather_beta/core/widgets/widgets.dart';
 
 class DailyForecastTile extends StatelessWidget {
-  static final _format = DateFormat("MM/dd E");
+  static final _format = DateFormat("E");
 
   final DailyForecastList daily;
   final Range globalRange;
@@ -31,7 +31,7 @@ class DailyForecastTile extends StatelessWidget {
 
         children: [
           Text(_format.format(daily.entries[0].time), style: textStyle),
-          const SizedBox(width: 16),
+          const SizedBox(width: 20),
 
           WeatherSvg.textStyled(
             daily.entries[14].icon,
@@ -40,7 +40,7 @@ class DailyForecastTile extends StatelessWidget {
             color: context.colorScheme.primary,
           ),
 
-          const SizedBox(width: 16),
+          const SizedBox(width: 20),
           _RangeText(min, align: TextAlign.left, style: textStyle),
           _ExpandedRangeBar(range: range, global: globalRange),
           _RangeText(max, align: TextAlign.right, style: textStyle),
@@ -60,10 +60,10 @@ class _RangeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 30,
+      width: 44,
 
       child: Text(
-        WeatherMetric.temperature(value, short: true),
+        WeatherMetric.temperature(value),
         style: style,
         textAlign: align,
       ),
