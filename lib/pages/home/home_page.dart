@@ -68,7 +68,7 @@ class _State extends State<HomePage> {
       controller: controller,
 
       decoration: InputDecoration(
-        hintText: "在此输入需要查询的城市名 ...",
+        hintText: "在此输入需要查询的城市名",
         prefixIcon: Icon(Icons.location_on, color: context.colorScheme.primary),
       ),
     );
