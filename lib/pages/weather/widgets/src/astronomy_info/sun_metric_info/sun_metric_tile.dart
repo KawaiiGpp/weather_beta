@@ -23,6 +23,8 @@ class SunMetricTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = context.colorScheme;
+
     return Container(
       width: 96,
       padding: const EdgeInsets.all(16),
@@ -31,13 +33,13 @@ class SunMetricTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
 
         children: [
-          Icon(icon, color: context.colorScheme.primary),
-          const SizedBox(height: 6),
-
-          Text(name),
-          const SizedBox(height: 2),
+          Icon(icon, color: scheme.primary),
+          const SizedBox(height: 12),
 
           Text(_format(_dateTime(context))),
+          const SizedBox(height: 2),
+
+          Text(name, style: TextStyle(color: scheme.onSurfaceVariant)),
         ],
       ),
     );
