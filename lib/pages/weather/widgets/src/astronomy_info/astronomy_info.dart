@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_beta/core/common/common.dart';
 import 'package:weather_beta/pages/weather/data/weather_data.dart';
+import 'package:weather_beta/pages/weather/widgets/src/astronomy_info/solar_elevation_info/solar_elevation_info.dart';
 import 'package:weather_beta/pages/weather/widgets/src/astronomy_info/sun_metric_info/sun_metric_info.dart';
 
 class AstronomyInfo extends StatelessWidget {
@@ -9,7 +10,13 @@ class AstronomyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(create: _createSolarInfo, child: const SunMetricInfo());
+    return Provider(
+      create: _createSolarInfo,
+      
+      child: const Column(
+        children: [SunMetricInfo(), SizedBox(height: 12), SolarElevationInfo()],
+      ),
+    );
   }
 
   SolarInfo _createSolarInfo(BuildContext context) {
