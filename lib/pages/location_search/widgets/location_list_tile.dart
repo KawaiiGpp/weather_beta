@@ -20,7 +20,7 @@ class LocationListTile extends StatelessWidget {
         leading: _leading(context),
         trailing: _trailing(),
         title: _text(location.name),
-        subtitle: _text("$country - $adm1 - $adm2"),
+        subtitle: _text("$country · $adm1 · $adm2"),
 
         onTap: onTap,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),

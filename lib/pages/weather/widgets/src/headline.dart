@@ -14,7 +14,7 @@ class Headline extends StatelessWidget {
     final text = context.textTheme;
 
     final location = data.location;
-    final name = "${location.country} - ${location.adm1} - ${location.adm2}";
+    final name = "${location.country} · ${location.adm1} · ${location.adm2}";
 
     final temps = data.forecast.mapHours(24, (it) => it.temperature);
     final tempNow = _format(data.realtime.temperature);
