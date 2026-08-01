@@ -24,6 +24,8 @@ class SolarElevationInfo extends StatelessWidget {
     final noonText = "${noon.toStringAsFixed(2)}°";
 
     return WeatherCard(
+      padding: const EdgeInsets.all(4),
+      
       child: ListTile(
         leading: Icon(Icons.wb_sunny_outlined, color: primary),
 
