@@ -14,12 +14,13 @@ class TemperatureConfig implements WeatherMetricConfig {
 
   @override
   GradientMap get gradientMap => const GradientMap(
-    stops: [-40, -20, 0, 14, 25, 34, 55],
+    stops: [-45, -20, 0, 12, 18, 24, 34, 55],
     colors: [
       Colors.purple,
       Colors.indigo,
       Colors.blue,
       Colors.cyan,
+      Colors.lightGreen,
       Color(0xFFFBC02D),
       Colors.red,
       Colors.black,
