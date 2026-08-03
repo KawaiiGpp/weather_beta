@@ -8,4 +8,6 @@ extension ContextExtension on BuildContext {
   ColorScheme get colorScheme => ColorScheme.of(this);
 
   IconThemeData get iconTheme => IconTheme.of(this);
+
+  ScaffoldMessengerState get messenger => ScaffoldMessenger.of(this);
 }
