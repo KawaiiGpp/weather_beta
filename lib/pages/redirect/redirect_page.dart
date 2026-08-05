@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_beta/core/router/app_routes.dart';
-import 'package:weather_beta/core/widgets/message.dart';
+import 'package:weather_beta/core/widgets/message/message.dart';
 
 class RedirectPage extends StatelessWidget {
   const RedirectPage({super.key});

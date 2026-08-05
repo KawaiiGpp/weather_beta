@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_beta/core/widgets/message.dart';
+import 'package:weather_beta/core/widgets/message/message.dart';
 
 class WebExceptionMessage extends StatelessWidget {
   final Object exception;

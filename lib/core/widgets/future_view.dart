@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_beta/core/widgets/message.dart';
+import 'package:weather_beta/core/widgets/message/message.dart';
 
 class FutureView<T> extends StatefulWidget {
   final Future<T> future;
