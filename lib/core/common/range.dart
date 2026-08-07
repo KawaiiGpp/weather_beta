@@ -4,7 +4,7 @@ class Range {
 
   const Range(this.min, this.max) : assert(min <= max);
 
-  Range.fromInt(int min, int max) : min = min.toDouble(), max = max.toDouble();
+  Range.fromInt(int min, int max) : this(min.toDouble(), max.toDouble());
 
   double get size => max - min;
 
